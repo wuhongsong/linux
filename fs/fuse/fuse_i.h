@@ -17,6 +17,7 @@
 #include <linux/spinlock.h>
 #include <linux/mm.h>
 #include <linux/backing-dev.h>
+#include <linux/moduleparam.h>
 #include <linux/mutex.h>
 #include <linux/rwsem.h>
 #include <linux/rbtree.h>
@@ -29,7 +30,7 @@
 #include <linux/user_namespace.h>
 
 /** Max number of pages that can be used in a single read request */
-#define FUSE_MAX_PAGES_PER_REQ 32
+extern unsigned int fuse_max_pages_per_req;
 
 /** Bias for fi->writectr, meaning new writepages must not be sent */
 #define FUSE_NOWRITE INT_MIN

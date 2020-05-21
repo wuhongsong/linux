@@ -1675,7 +1675,7 @@ static int fuse_retrieve(struct fuse_conn *fc, struct inode *inode,
 		num = file_size - outarg->offset;
 
 	num_pages = (num + offset + PAGE_SIZE - 1) >> PAGE_SHIFT;
-	num_pages = min(num_pages, FUSE_MAX_PAGES_PER_REQ);
+	num_pages = min(num_pages, fuse_max_pages_per_req);
 
 	req = fuse_get_req(fc, num_pages);
 	if (IS_ERR(req))

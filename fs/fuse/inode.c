@@ -27,6 +27,9 @@ MODULE_AUTHOR("Miklos Szeredi <miklos@szeredi.hu>");
 MODULE_DESCRIPTION("Filesystem in Userspace");
 MODULE_LICENSE("GPL");
 
+unsigned int fuse_max_pages_per_req = 32;
+module_param(fuse_max_pages_per_req, uint, S_IRUGO | S_IWUSR);
+
 static struct kmem_cache *fuse_inode_cachep;
 struct list_head fuse_conn_list;
 DEFINE_MUTEX(fuse_mutex);
